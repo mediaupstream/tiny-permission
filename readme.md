@@ -209,4 +209,4 @@ type InitialRole = number | string | RoleOption
 
 ## Footnotes
 
-<sup>1</sup> chainable methods
+<sup>1</sup> chainable methods: add, remove, reset
