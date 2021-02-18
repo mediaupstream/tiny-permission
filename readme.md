@@ -56,7 +56,7 @@ type RoleOption = 'create' | 'read' | 'update' | 'delete'
 type InitialRole = number | string | RoleOption
 ```
 
-### # Permission.new Permission(...initialRole: InitialRole[])
+### # new Permission(...initialRole: InitialRole[])
 
 Creates an instance of the Permission class
 
