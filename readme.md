@@ -85,7 +85,7 @@ Add permission(s) to the Permission instance state
 
 **Returns**
 
-Returns the Permission instance <sup>I</sup>
+Returns the Permission instance <sup>1</sup>
 
 **Example**
 
@@ -101,7 +101,7 @@ Remove permission(s) from the Permission instance state
 
 **Returns**
 
-Returns the Permission instance <sup>I</sup>
+Returns the Permission instance <sup>1</sup>
 
 **Example**
 
@@ -112,6 +112,22 @@ user.remove('create', 'read')
 
 user.has('create', 'read') // => false
 user.has('update') // => true
+```
+
+### # Permission.reset(): this
+
+Remove all permission from the Permission instance
+
+**Returns**
+
+Returns the Permission instance <sup>1</sup>
+
+**Example**
+
+```ts
+const user = new Permission('create', 'read', 'update')
+
+user.reset().has('create', 'read', 'update') // => false
 ```
 
 ### # Permission.has(...role: RoleOption[]): boolean
@@ -181,3 +197,5 @@ String(user) // => 15
 
 JSON.stringify({ user }) // => '{"user":15}'
 ```
+
+### <sup>1</sup> chainable methods
