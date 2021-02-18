@@ -56,7 +56,7 @@ type RoleOption = 'create' | 'read' | 'update' | 'delete'
 type InitialRole = number | string | RoleOption
 ```
 
-### # new Permission(...initialRole: InitialRole[])
+### # Permission.new Permission(...initialRole: InitialRole[])
 
 Creates an instance of the Permission class
 
@@ -79,7 +79,7 @@ const admin = new Permission(15)
 admin.can('create', 'read', 'update', 'delete') // => true
 ```
 
-### # add(...role: RoleOption[]): this
+### # Permission.add(...role: RoleOption[]): this
 
 Add permission(s) to the Permission instance state
 
@@ -95,7 +95,7 @@ const user = new Permission()
 user.add('create', 'read').has('create') // => true
 ```
 
-### # remove(...role: RoleOption[]): this
+### # Permission.remove(...role: RoleOption[]): this
 
 Remove permission(s) from the Permission instance state
 
@@ -114,7 +114,7 @@ user.has('create', 'read') // => false
 user.has('update') // => true
 ```
 
-### # has(...role: RoleOption[]): boolean
+### # Permission.has(...role: RoleOption[]): boolean
 
 Check permission(s) on the Permission instance. If you provide multiple arguments they all must be present on the instance permission. see example below
 
@@ -134,11 +134,11 @@ user.has('delete') // => false
 user.has('create', 'read', 'update', 'delete') // => false
 ```
 
-### # can(...role: RoleOption[]): boolean
+### # Permission.can(...role: RoleOption[]): boolean
 
 Same as `has`
 
-### # bin(): string
+### # Permission.bin(): string
 
 Convert the current permission instance to a binary representation of the permission
 
@@ -152,7 +152,7 @@ const admin = new Permission('create', 'read', 'update', 'delete')
 admin.bin() // => 1111
 ```
 
-### # hex(): string
+### # Permission.hex(): string
 
 Same as `bin` but converts to `hexidecimal`
 
