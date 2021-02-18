@@ -178,4 +178,6 @@ String(user) // => 0
 
 user.add('create', 'read', 'update', 'delete')
 String(user) // => 15
+
+JSON.stringify({ user }) // => '{"user":15}'
 ```
