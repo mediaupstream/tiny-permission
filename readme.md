@@ -58,13 +58,6 @@ resources.project.reset().hex() // => 0
 - [bin](#-permissionbin-string)
 - [hex](#-permissionhex-string)
 
-## Types
-
-```ts
-type RoleOption = 'create' | 'read' | 'update' | 'delete'
-type InitialRole = number | string | RoleOption
-```
-
 ### # new Permission(...initialRole: InitialRole[])
 
 Creates an instance of the Permission class
@@ -207,6 +200,13 @@ String(user) // => 15
 JSON.stringify({ user }) // => '{"user":15}'
 ```
 
-### Footnotes
+## Types
+
+```ts
+type RoleOption = 'create' | 'read' | 'update' | 'delete'
+type InitialRole = number | string | RoleOption
+```
+
+## Footnotes
 
 <sup>1</sup> chainable methods
