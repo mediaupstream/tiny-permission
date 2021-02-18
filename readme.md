@@ -1,6 +1,6 @@
 # Tiny Permission
 
-Manage CRUD permissions using bitmasks. You can store all possible CRUD combinations in 2 bytes (0-15), or one hexidecimal value (0-F). :cool:
+Manage CRUD permissions using bitmasks. You can store all possible CRUD combinations in 2 bytes (0-15), or one hexidecimal value (0-F)
 
 All CRUD combinations:
 
