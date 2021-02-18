@@ -27,7 +27,7 @@ bits     role
 
 Nice!
 
-## Unrealistic Example
+## Example
 
 Imagine you need to track permissions for a set of resources:
 
