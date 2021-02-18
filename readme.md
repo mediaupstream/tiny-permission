@@ -25,8 +25,6 @@ bits     role
 1111     create read update delete
 ```
 
-Nice!
-
 ## Example
 
 Imagine you need to track permissions for a set of resources:
