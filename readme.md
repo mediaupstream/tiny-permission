@@ -1,27 +1,29 @@
 # Tiny Permission
 
-Manage CRUD permissions using bitmasks. You can store all possible CRUD combinations in 2 bytes, or one hexidecimal value. :cool:
+Manage CRUD permissions using bitmasks. You can store all possible CRUD combinations in 2 bytes (0-15), or one hexidecimal value (0-F). :cool:
 
 All CRUD combinations:
 
-| bit  | role                      |
-| ---- | ------------------------- |
-| 0000 | no permissions            |
-| 0001 | create                    |
-| 0010 | read                      |
-| 0011 | create read               |
-| 0100 | update                    |
-| 0101 | create update             |
-| 0110 | read update               |
-| 0111 | create read update        |
-| 1000 | delete                    |
-| 1001 | create delete             |
-| 1010 | read delete               |
-| 1011 | create read delete        |
-| 1100 | update delete             |
-| 1101 | create update delete      |
-| 1110 | read update delete        |
-| 1111 | create read update delete |
+```
+bits     role
+
+0000     no permissions
+0001     create
+0010     read
+0011     create read
+0100     update
+0101     create update
+0110     read update
+0111     create read update
+1000     delete
+1001     create delete
+1010     read delete
+1011     create read delete
+1100     update delete
+1101     create update delete
+1110     read update delete
+1111     create read update delete
+```
 
 Nice!
 
@@ -45,17 +47,26 @@ resources.project.remove('create').has('create') // => false
 resources.project.reset().hex() // => 0
 ```
 
-## API
+# API
 
-# new Permission(...initialRole: InitialRole[])
+### Types
 
-Creates an instance of the Permission class. The constructor accepts optional arguments to set the initial state.
+```ts
+type RoleOption = 'create' | 'read' | 'update' | 'delete'
+type InitialRole = number | string | RoleOption
+```
 
-where `InitialRole` can be any of `string | number | RoleOption`
+### # new Permission(...initialRole: InitialRole[])
+
+Creates an instance of the Permission class
+
+**Arguments**
+
+Accepts any number of arguments of type `InitialRole`
 
 **Returns**
 
-Returns the new Permission instance
+Returns a new Permission instance
 
 **Example**
 
@@ -70,18 +81,101 @@ admin.can('create', 'read', 'update', 'delete') // => true
 
 ---
 
-# add(...role: RoleOption[]): this
+### # add(...role: RoleOption[]): this
 
-description
+Add permission(s) to the Permission instance state
 
 **Returns**
 
-description
+Returns the Permission instance <sup>I</sup>
 
 **Example**
 
 ```ts
-// example code
+const user = new Permission()
+
+user.add('create', 'read').has('create') // => true
+```
+
+---
+
+### # remove(...role: RoleOption[]): this
+
+Remove permission(s) from the Permission instance state
+
+**Returns**
+
+Returns the Permission instance <sup>I</sup>
+
+**Example**
+
+```ts
+const user = new Permission('create', 'read', 'update')
+
+user.remove('create', 'read')
+
+user.has('create', 'read') // => false
+user.has('update') // => true
+```
+
+---
+
+### # has(...role: RoleOption[]): boolean
+
+Check permission(s) on the Permission instance. If you provide multiple arguments they all must be present on the instance permission. see example below
+
+**Returns**
+
+Returns a `boolean` value
+
+**Example**
+
+```ts
+const user = new Permission('create', 'read', 'update')
+
+user.has('create', 'read', 'update') // => true
+user.has('delete') // => false
+
+// this is false because the user doesn't have delete permission
+user.has('create', 'read', 'update', 'delete') // => false
+```
+
+---
+
+### # can(...role: RoleOption[]): boolean
+
+Same as `has`
+
+---
+
+### # bin(): string
+
+Convert the current permission instance to a binary representation of the permission
+
+**Example**
+
+```ts
+const user = new Permission('read', 'update')
+user.bin() // => 0110
+
+const admin = new Permission('create', 'read', 'update', 'delete')
+admin.bin() // => 1111
+```
+
+---
+
+### # hex(): string
+
+Same as `bin` but converts to `hexidecimal`
+
+**Example**
+
+```ts
+const user = new Permission('read', 'update')
+user.hex() // => 6
+
+const admin = new Permission('create', 'read', 'update', 'delete')
+admin.hex() // => F
 ```
 
 ---
