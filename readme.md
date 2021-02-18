@@ -5,24 +5,24 @@ Manage CRUD permissions using bitmasks. You can store all possible CRUD combinat
 All CRUD combinations:
 
 ```
-bits  int  hex  role
+bytes  int  hex  role
 
-0000  0    0    no permissions
-0001  1    1    create
-0010  2    2    read
-0011  3    3    create read
-0100  4    4    update
-0101  5    5    create update
-0110  6    6    read update
-0111  7    7    create read update
-1000  8    8    delete
-1001  9    9    create delete
-1010  10   A    read delete
-1011  11   B    create read delete
-1100  12   C    update delete
-1101  13   D    create update delete
-1110  14   E    read update delete
-1111  15   F    create read update delete
+0000   0    0    no permissions
+0001   1    1    create
+0010   2    2    read
+0011   3    3    create read
+0100   4    4    update
+0101   5    5    create update
+0110   6    6    read update
+0111   7    7    create read update
+1000   8    8    delete
+1001   9    9    create delete
+1010   10   A    read delete
+1011   11   B    create read delete
+1100   12   C    update delete
+1101   13   D    create update delete
+1110   14   E    read update delete
+1111   15   F    create read update delete
 ```
 
 ## Example
