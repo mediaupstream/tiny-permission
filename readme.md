@@ -79,8 +79,6 @@ const admin = new Permission(15)
 admin.can('create', 'read', 'update', 'delete') // => true
 ```
 
----
-
 ### # add(...role: RoleOption[]): this
 
 Add permission(s) to the Permission instance state
@@ -96,8 +94,6 @@ const user = new Permission()
 
 user.add('create', 'read').has('create') // => true
 ```
-
----
 
 ### # remove(...role: RoleOption[]): this
 
@@ -117,8 +113,6 @@ user.remove('create', 'read')
 user.has('create', 'read') // => false
 user.has('update') // => true
 ```
-
----
 
 ### # has(...role: RoleOption[]): boolean
 
@@ -140,13 +134,9 @@ user.has('delete') // => false
 user.has('create', 'read', 'update', 'delete') // => false
 ```
 
----
-
 ### # can(...role: RoleOption[]): boolean
 
 Same as `has`
-
----
 
 ### # bin(): string
 
@@ -162,8 +152,6 @@ const admin = new Permission('create', 'read', 'update', 'delete')
 admin.bin() // => 1111
 ```
 
----
-
 ### # hex(): string
 
 Same as `bin` but converts to `hexidecimal`
@@ -177,5 +165,3 @@ user.hex() // => 6
 const admin = new Permission('create', 'read', 'update', 'delete')
 admin.hex() // => F
 ```
-
----
