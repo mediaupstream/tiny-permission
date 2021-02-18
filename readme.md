@@ -136,7 +136,7 @@ user.has('create', 'read', 'update', 'delete') // => false
 
 ### # Permission.can(...role: RoleOption[]): boolean
 
-Same as `has`
+Same as `Permission.has`
 
 ### # Permission.bin(): string
 
@@ -154,7 +154,7 @@ admin.bin() // => 1111
 
 ### # Permission.hex(): string
 
-Same as `bin` but converts to `hexidecimal`
+Same as `Permission.bin` but converts to `hexidecimal`
 
 **Example**
 
