@@ -1,8 +1,8 @@
 # Tiny Permission
 
-There are 16 possible combinations of CRUD (Create, Read, Update, Delete) (4\*4) and 8 bits per byte, so we can store all possible CRUD combinations in 16 bits! :smile:
+Manage CRUD permissions using bitmasks. You can store all possible CRUD combinations in 2 bytes, or one hexidecimal value. :cool:
 
-All possible permission combinations:
+All CRUD combinations:
 
 | bit  | role                      |
 | ---- | ------------------------- |
@@ -23,9 +23,9 @@ All possible permission combinations:
 | 1110 | read update delete        |
 | 1111 | create read update delete |
 
-This is cool because we can use the integer value 0-15, or the hexidecimal 0-F to store permissions.
+Nice!
 
-## Example
+## Unrealistic Example
 
 Imagine you need to track permissions for a set of resources:
 
@@ -41,9 +41,7 @@ const resources = {
 
 resources.project.has('read', 'delete') // => true
 resources.project.hex() // => F
-
 resources.project.remove('create').has('create') // => false
-
 resources.project.reset().hex() // => 0
 ```
 
