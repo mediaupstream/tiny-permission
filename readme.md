@@ -27,10 +27,10 @@ bytes  int  hex  role
 
 ## Example
 
-Imagine you need to track permissions for a set of resources:
+Imagine you want to track a users permissions for a set of resources:
 
 ```ts
-import Permission from 'bitmask-permission'
+import Permission from 'tiny-permission'
 
 const resources = {
   project: new Permission('create', 'read', 'update', 'delete'),

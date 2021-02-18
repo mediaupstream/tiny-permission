@@ -1,6 +1,6 @@
 import Permission from './'
 
-describe('Bitmask Permissions', () => {
+describe('Tiny Permission', () => {
   it('Creates a new Permission instance with default (no) permission', () => {
     const p = new Permission()
     expect(+p).toEqual(0)
