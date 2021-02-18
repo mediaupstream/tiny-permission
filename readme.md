@@ -198,4 +198,6 @@ String(user) // => 15
 JSON.stringify({ user }) // => '{"user":15}'
 ```
 
-### <sup>1</sup> chainable methods
+### Footnotes
+
+<sup>1</sup> chainable methods
