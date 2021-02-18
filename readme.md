@@ -49,7 +49,7 @@ resources.project.reset().hex() // => 0
 
 # API
 
-### Types
+## Types
 
 ```ts
 type RoleOption = 'create' | 'read' | 'update' | 'delete'
@@ -164,4 +164,18 @@ user.hex() // => 6
 
 const admin = new Permission('create', 'read', 'update', 'delete')
 admin.hex() // => F
+```
+
+## Additional Notes
+
+If you cast a `Permission` instance to string you will get the integer value of the role, so a value of 0-15 depending on the permissions set in that instance.
+
+**Example**:
+
+```ts
+const user = new Permission()
+String(user) // => 0
+
+user.add('create', 'read', 'update', 'delete')
+String(user) // => 15
 ```
