@@ -49,6 +49,15 @@ resources.project.reset().hex() // => 0
 
 # API
 
+[constructor](#-new-permissioninitialrole-initialrole)
+[add](#-permissionaddrole-roleoption-this)
+[remove](#-permissionremoverole-roleoption-this#-permissionaddrole-roleoption-this)
+[reset](#-permissionreset-this)
+[has](#-permissionhasrole-roleoption-boolean)
+[can](#-permissioncanrole-roleoption-boolean)
+[bin](#-permissionbin-string)
+[hex](#-permissionhex-string)
+
 ## Types
 
 ```ts
